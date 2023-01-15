@@ -48,53 +48,55 @@ const Poll = ({ poll }) => {
             <strong>Would you rather</strong>
           </Card.Description>
         </Card.Content>
-        {showPoll ? (
+        {/* {showPoll ? (
           <ShowPoll setShowPoll={setShowPoll} poll={poll} />
         ) : takePoll ? (
           <TakePoll poll={poll} />
-        ) : (
-          <Card.Content>
-            <Button basic color="violet">
-              {optionOne}
-            </Button>
-            <br />
-            <br />
-            <div>Or</div>
-            <br />
-            <Button basic color="violet">
-              {optionTwo}
-            </Button>
+        ) : ( */}
+        <Card.Content>
+          <Button basic color="violet">
+            {optionOne}
+          </Button>
+          <div>Or</div>
+          <Button basic color="violet">
+            {optionTwo}
+          </Button>
 
-            {!(userVoteOne + userVoteTwo).includes(state.authedUser) ? (
-              <Button
-                animated
-                basic
-                color="pink"
-                floated="right"
-                onClick={handeTakePoll}
-              >
-                <Button.Content visible>Take Poll</Button.Content>
-                <Button.Content hidden>
-                  <Icon name="arrow right" />
-                </Button.Content>
-              </Button>
-            ) : (
-              <Button
-                animated
-                basic
-                color="pink"
-                floated="right"
-                onClick={handleShowPoll}
-              >
-                <Button.Content visible>Show Poll</Button.Content>
-                <Button.Content hidden>
-                  <Icon name="arrow right" />
-                </Button.Content>
-              </Button>
-            )}
-          </Card.Content>
-        )}
+          {!(userVoteOne + userVoteTwo).includes(state.authedUser) ? (
+            <Button
+              animated
+              basic
+              color="pink"
+              floated="right"
+              onClick={handeTakePoll}
+            >
+              <Button.Content visible>Take Poll</Button.Content>
+              <Button.Content hidden>
+                <Icon name="arrow right" />
+              </Button.Content>
+            </Button>
+          ) : (
+            <Button
+              animated
+              basic
+              color="pink"
+              floated="right"
+              onClick={handleShowPoll}
+            >
+              <Button.Content visible>Show Poll</Button.Content>
+              <Button.Content hidden>
+                <Icon name="arrow right" />
+              </Button.Content>
+            </Button>
+          )}
+        </Card.Content>
+        {/* )} */}
       </Card>
+      {showPoll ? (
+        <ShowPoll setShowPoll={setShowPoll} poll={poll} />
+      ) : takePoll ? (
+        <TakePoll poll={poll} />
+      ) : null}
     </Card.Group>
   );
 };

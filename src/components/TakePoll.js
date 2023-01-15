@@ -1,47 +1,81 @@
-import { Button, Card } from "semantic-ui-react";
+import { Button, Card, Form, Checkbox, Image } from "semantic-ui-react";
 import { useState } from "react";
-// import { useSelector } from "react-redux";
+import { handleAnswerQuestion } from "../actions/questions";
+import { useDispatch, useSelector } from "react-redux";
+import TakenPolls from "./TakenPolls";
 
 const TakePoll = ({ poll }) => {
-  const { optionOne, optionTwo
-    // , uservoteOne, userVoteTwo 
-} = poll;
+  const {
+    author, avatar,
+    optionOne,
+    optionTwo,
+    // , uservoteOne, userVoteTwo
+  } = poll;
+  const dispatch = useDispatch();
+  const authedUser = useSelector((state) => state.authedUser);
   const [vote, setVote] = useState("");
-//   const state = useSelector((state) => state);
-  const handleVote = (option) => {
-    setVote(option);
-    // if (option === optionOne) {
-    //   uservoteOne.push(state.authedUser);
-    // } else if (option === optionTwo) {
-    //   userVoteTwo.push(state.authedUser);
-    // }
+const [showTakenPoll, setShowTakenPoll] = useState(false)
+  // const chooseOption = (e) => {
+  //   setVote(e.target.value);
+  // };
+  console.log(vote);
+  const handleVote = () => {
+    dispatch(handleAnswerQuestion({ authedUser, qid: poll.id, answer: vote }));
   };
-  console.log(poll, vote);
-
-  //   if (vote === optionOne) {
-  //     uservoteOne.push(state.authedUser);
-  //   } else if (vote === optionTwo) {
-  //     userVoteTwo.push(state.authedUser);
-  //   } else {
-  //     return;
-  //   }
 
   return (
+    <Card fluid color="grey">
     <Card.Content>
-      <Button basic color="violet" onClick={() => handleVote(optionOne)}>
-        {optionOne}
-      </Button>
-      <br />
-      <br />
-      <div>Or</div>
-      <br />
-      <Button basic color="violet" onClick={() => handleVote(optionTwo)}>
-        {optionTwo}
-      </Button>
-      {/* <Button basic color="pink" floated="right">
-        Vote
-      </Button> */}
+      <Image avatar floated="left" src={avatar} />
+      <Card.Header>{author.name}</Card.Header>
+      <Card.Meta>is asking:</Card.Meta>
+      <Card.Description>
+        <strong>Would you rather</strong>
+      </Card.Description>
     </Card.Content>
+    <Card.Content>
+      <Form onSubmit={handleVote}>
+        <Form.Field>
+          Selected value: <b>{vote}</b>
+        </Form.Field>
+        <Form.Field>
+          <Checkbox
+            radio
+            label={optionOne}
+            name="checkboxRadioGroup"
+            value="optionOne"
+            checked={vote === "optionOne"}
+            onChange={(e,data) => setVote(data.value)}
+          />
+          {/* <label>{optionOne}</label> */}
+        </Form.Field>
+        <Form.Field>
+          <Checkbox
+            radio
+            label={optionTwo}
+            name="checkboxRadioGroup"
+            value="optionTwo"
+            checked={vote === "optionTwo"}
+            onChange={(e, data) => setVote(data.value)}
+          />
+          {/* <input
+            type="radio"
+            // label={optionOne}
+            name="checkboxRadioGroup"
+            value="optionTwo"
+            checked={vote === "optionTwo"}
+            onChange={(event) => setVote(event.target.value)}
+          />
+          <label>{optionTwo}</label> */}
+        </Form.Field>
+
+        <Button basic color="pink" floated="right" type="submit" >
+          Vote
+        </Button>
+      </Form>
+    </Card.Content>
+    {/* {showTakenPoll ? <TakenPolls/> : null} */}
+    </Card>
   );
 };
 

@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import {receiveInitialData} from "./actions/index"
 import Navigation from "./components/Navigation"
 import PollTabs from "./components/PollTabs";
+import NewPolls from "./components/NewPolls";
+import TakenPolls from "./components/TakenPolls";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,7 +24,7 @@ function App() {
   );
 
 
-  // console.log(newPollIDs);
+  console.log(newPollIDs);
 
   return <div className="App">
     <Navigation/>
