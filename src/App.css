@@ -1,4 +1,13 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
   margin: 2%;
+}
+
+img.avatar {
+  width: 4em !important;
+  height: 4em !important;
+}
+
+.header {
+  margin-top: 0.6rem !important;
 }
