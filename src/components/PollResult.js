@@ -74,7 +74,7 @@ const PollResult = () => {
             You Chose
           </Label>
         )}
-        <div>
+        <div >
           <Checkbox radio label={LabelOne} name="checkboxRadioGroup" />
           <Progress
             color="violet"

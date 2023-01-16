@@ -30,7 +30,7 @@ const Home = () => {
   const panes = [
     {
       menuItem: (
-        <Menu.Item>
+        <Menu.Item key="new">
           New Polls<Label color="pink">{newPolls.length}</Label>
         </Menu.Item>
       ),
@@ -42,7 +42,7 @@ const Home = () => {
     },
     {
       menuItem: (
-        <Menu.Item>
+        <Menu.Item key="taken">
           Taken Polls<Label>{takenPolls.length}</Label>
         </Menu.Item>
       ),

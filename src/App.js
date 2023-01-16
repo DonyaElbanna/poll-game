@@ -12,7 +12,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import PollResult from "./components/PollResult";
 import TakePoll from "./components/TakePoll";
-// import NewPolls from "./components/NewPolls";
+import AddPoll from "./components/AddPoll";
+import Leaderboard from "./components/Leaderboard";
 
 function App() {
   return (
@@ -21,8 +22,10 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/" exact element={<Home />} />
-          <Route path="/poll-result/:id" element={<PollResult />} />
           <Route path="/poll/:id" element={<TakePoll />} />
+          <Route path="/poll-result/:id" element={<PollResult />} />
+          <Route path="/add" exact element={<AddPoll />} />
+          <Route path="/leaderboard" exact element={<Leaderboard />} />
         </Routes>
         {/* <PollResult/> */}
       </div>
