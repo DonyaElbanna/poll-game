@@ -14,6 +14,7 @@ const Navigation = () => {
       <Menu pointing secondary stackable>
         <Link to="/">
           <Menu.Item
+            as="li"
             name="home"
             active={activeItem === "Home"}
             onClick={handleItemClick}
@@ -22,6 +23,7 @@ const Navigation = () => {
 
         <Link to="/add">
           <Menu.Item
+            as="li"
             name="Add Poll"
             active={activeItem === "Add Poll"}
             onClick={handleItemClick}
@@ -30,6 +32,7 @@ const Navigation = () => {
 
         <Link to="/leaderboard">
           <Menu.Item
+            as="li"
             name="Leaderboard"
             active={activeItem === "Leaderboard"}
             onClick={handleItemClick}
