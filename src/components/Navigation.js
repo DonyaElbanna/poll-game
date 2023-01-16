@@ -1,28 +1,39 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { removeAuthedUser } from "../actions/authedUser";
 import { Menu } from "semantic-ui-react";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [activeItem, setActiveItem] = useState("Home");
+  const dispatch = useDispatch();
 
   const handleItemClick = (e) => {
     setActiveItem(e.target.innerHTML);
   };
 
-  const authedUser = useSelector((state) => state.authedUser);
-  console.log(authedUser);
+  const handleLogOut = () => {
+    dispatch(removeAuthedUser());
+  };
 
-  const handleAlert = () => {
-    if (!authedUser) {
-      alert("You gotta login first!")
-    }
-  }
+  // const authedUser = useSelector((state) => state.authedUser);
+  // console.log(authedUser);
+
+  // const handleAlert = () => {
+  //   if (!authedUser) {
+  //     alert("You gotta login first!")
+  //   }
+  // }
 
   return (
     <div>
-      <Menu pointing secondary stackable onClick={handleAlert}>
-        <Link to={authedUser ? "/home" : "/"}>
+      <Menu
+        pointing
+        secondary
+        stackable
+        // onClick={handleAlert}
+      >
+        <Link to="/home">
           <Menu.Item
             as="li"
             name="home"
@@ -31,7 +42,7 @@ const Navigation = () => {
           />
         </Link>
 
-        <Link to={authedUser ? "/add" : "/"}>
+        <Link to="/add">
           <Menu.Item
             as="li"
             name="Add Poll"
@@ -40,7 +51,7 @@ const Navigation = () => {
           />
         </Link>
 
-        <Link to={authedUser ? "/leaderboard" : "/"}>
+        <Link to="/leaderboard">
           <Menu.Item
             as="li"
             name="Leaderboard"
@@ -51,9 +62,11 @@ const Navigation = () => {
 
         <Menu.Menu position="right">
           <Menu.Item
+            as={Link}
+            to="/"
             name="logout"
             active={activeItem === "logout"}
-            onClick={handleItemClick}
+            onClick={handleLogOut}
           />
         </Menu.Menu>
       </Menu>

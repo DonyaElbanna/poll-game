@@ -3,7 +3,7 @@ import { Dropdown, Button } from "semantic-ui-react";
 import { useState } from "react";
 import { setAuthedUser } from "../actions/authedUser";
 import { useDispatch } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const users = [
   {
@@ -36,8 +36,7 @@ const users = [
 ];
 
 const Login = () => {
-
-  console.log(useParams())
+  // console.log(useParams())
 
   const [user, setUser] = useState("");
   const dispatch = useDispatch();
@@ -64,7 +63,14 @@ const Login = () => {
         options={users}
         onChange={handleUser}
       />
-      <Button as={Link} to="/home" basic color="violet" disabled={!user} onClick={handleLogin}>
+      <Button
+        as={Link}
+        to="/home"
+        basic
+        color="violet"
+        disabled={!user}
+        onClick={handleLogin}
+      >
         Log in
       </Button>
     </div>
