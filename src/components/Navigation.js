@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Menu } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Navigation = () => {
   const [activeItem, setActiveItem] = useState("Home");
@@ -9,10 +10,19 @@ const Navigation = () => {
     setActiveItem(e.target.innerHTML);
   };
 
+  const authedUser = useSelector((state) => state.authedUser);
+  console.log(authedUser);
+
+  const handleAlert = () => {
+    if (!authedUser) {
+      alert("You gotta login first!")
+    }
+  }
+
   return (
     <div>
-      <Menu pointing secondary stackable>
-        <Link to="/">
+      <Menu pointing secondary stackable onClick={handleAlert}>
+        <Link to={authedUser ? "/home" : "/"}>
           <Menu.Item
             as="li"
             name="home"
@@ -21,7 +31,7 @@ const Navigation = () => {
           />
         </Link>
 
-        <Link to="/add">
+        <Link to={authedUser ? "/add" : "/"}>
           <Menu.Item
             as="li"
             name="Add Poll"
@@ -30,7 +40,7 @@ const Navigation = () => {
           />
         </Link>
 
-        <Link to="/leaderboard">
+        <Link to={authedUser ? "/leaderboard" : "/"}>
           <Menu.Item
             as="li"
             name="Leaderboard"

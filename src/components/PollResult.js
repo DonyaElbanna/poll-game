@@ -43,17 +43,17 @@ const PollResult = () => {
   };
 
   if (goBack === true) {
-    return <Navigate to="/" />;
+    return <Navigate to="/home" />;
   }
 
   const LabelOne = (
-    <Label basic color="violet" image>
+    <Label basic color="black" image>
       {optionOne}
     </Label>
   );
 
   const LabelTwo = (
-    <Label basic color="violet" image>
+    <Label basic color="black" image>
       {optionTwo}
     </Label>
   );
@@ -77,7 +77,7 @@ const PollResult = () => {
         <div >
           <Checkbox radio label={LabelOne} name="checkboxRadioGroup" />
           <Progress
-            color="violet"
+            color="grey"
             value={votesOne}
             total={totalVotes}
             progress="ratio"
@@ -92,9 +92,9 @@ const PollResult = () => {
         )}
 
         <div>
-          <Checkbox radio label={LabelTwo} name="checkboxRadioGroup" />
+          <Checkbox radio label={LabelTwo} name="checkboxRadioGroup"/>
           <Progress
-            color="violet"
+            color="grey"
             value={votesTwo}
             total={totalVotes}
             progress="ratio"
@@ -102,7 +102,7 @@ const PollResult = () => {
         </div>
 
         <div className="center-btn">
-          <Button animated color="pink" onClick={handleGoBack}>
+          <Button animated color="violet" onClick={handleGoBack}>
             <Button.Content visible>Go Back</Button.Content>
             <Button.Content hidden>
               <Icon name="arrow left" />

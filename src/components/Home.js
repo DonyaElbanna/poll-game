@@ -1,15 +1,9 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { receiveInitialData } from "../actions/index";
+import {  useSelector } from "react-redux";
 import NewPolls from "./NewPolls";
 import TakenPolls from "./TakenPolls";
 import { Tab, Label, Menu } from "semantic-ui-react";
 
 const Home = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(receiveInitialData());
-  }, [dispatch]);
 
   const state = useSelector((state) => state);
 

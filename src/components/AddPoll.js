@@ -49,7 +49,7 @@ const AddPoll = () => {
         </Form>
       </Card.Content>
       <Card.Content className="center-btn">
-        <Button disabled={!optionOne || !optionTwo} onClick={handleSubmitPoll}>
+        <Button color="violet" disabled={!optionOne || !optionTwo} onClick={handleSubmitPoll}>
           Submit
         </Button>
       </Card.Content>

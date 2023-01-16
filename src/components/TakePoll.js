@@ -89,14 +89,14 @@ const TakePoll = () => {
             <Button
               disabled={!vote}
               style={{ display: viewResults && "none" }}
-              color="pink"
+              color="violet"
               type="submit"
             >
               Vote
             </Button>
             <Button
               style={{ display: !viewResults && "none" }}
-              color="pink"
+              color="violet"
               onClick={handleGoToPollResult}
             >
               View Result

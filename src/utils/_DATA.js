@@ -1,8 +1,8 @@
 let users = {
-  sarahedo: {
-    id: "sarahedo",
-    name: "Sarah Edo",
-    avatarURL: "https://i.postimg.cc/cJz4MCct/3.jpg",
+  jennyhess: {
+    id: "jennyhess",
+    name: "Jenny Hess",
+    avatarURL: "https://react.semantic-ui.com/images/avatar/large/stevie.jpg",
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
       "6ni6ok3ym7mf1p33lnez": "optionTwo",
@@ -11,20 +11,20 @@ let users = {
     },
     questions: ["8xf0y6ziyjabvozdd253nd", "am8ehyc8byjqgar0jgpub9"],
   },
-  tylermcginnis: {
-    id: "tylermcginnis",
-    name: "Tyler McGinnis",
-    avatarURL: "https://i.postimg.cc/25ySZhnf/2.jpg",
+  mattfeliciano: {
+    id: "mattfeliciano",
+    name: "Matt Feliciano",
+    avatarURL: "https://semantic-ui.com/images/avatar/large/joe.jpg",
     answers: {
       vthrdm985a262al8qx3do: "optionOne",
       xj352vofupe1dqz9emx13r: "optionTwo",
     },
     questions: ["loxhs1bqm25b708cmbf3g", "vthrdm985a262al8qx3do"],
   },
-  johndoe: {
-    id: "johndoe",
-    name: "John Doe",
-    avatarURL: "https://i.postimg.cc/K8Zzmdzj/1.jpg",
+  elliotfu: {
+    id: "elliotfu",
+    name: "Elliot Fu",
+    avatarURL: "https://react.semantic-ui.com/images/avatar/large/matthew.png",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
       vthrdm985a262al8qx3do: "optionTwo",
@@ -37,10 +37,10 @@ let users = {
 let questions = {
   "8xf0y6ziyjabvozdd253nd": {
     id: "8xf0y6ziyjabvozdd253nd",
-    author: "sarahedo",
+    author: "jennyhess",
     timestamp: 1467166872634,
     optionOne: {
-      votes: ["sarahedo"],
+      votes: ["jennyhess"],
       text: "have horrible short term memory",
     },
     optionTwo: {
@@ -50,66 +50,66 @@ let questions = {
   },
   "6ni6ok3ym7mf1p33lnez": {
     id: "6ni6ok3ym7mf1p33lnez",
-    author: "johndoe",
+    author: "elliotfu",
     timestamp: 1468479767190,
     optionOne: {
       votes: [],
       text: "become a superhero",
     },
     optionTwo: {
-      votes: ["johndoe", "sarahedo"],
+      votes: ["elliotfu", "jennyhess"],
       text: "become a supervillain",
     },
   },
   am8ehyc8byjqgar0jgpub9: {
     id: "am8ehyc8byjqgar0jgpub9",
-    author: "sarahedo",
+    author: "jennyhess",
     timestamp: 1488579767190,
     optionOne: {
       votes: [],
       text: "be telekinetic",
     },
     optionTwo: {
-      votes: ["sarahedo"],
+      votes: ["jennyhess"],
       text: "be telepathic",
     },
   },
   loxhs1bqm25b708cmbf3g: {
     id: "loxhs1bqm25b708cmbf3g",
-    author: "tylermcginnis",
+    author: "mattfeliciano",
     timestamp: 1482579767190,
     optionOne: {
       votes: [],
       text: "be a front-end developer",
     },
     optionTwo: {
-      votes: ["sarahedo"],
+      votes: ["jennyhess"],
       text: "be a back-end developer",
     },
   },
   vthrdm985a262al8qx3do: {
     id: "vthrdm985a262al8qx3do",
-    author: "tylermcginnis",
+    author: "mattfeliciano",
     timestamp: 1489579767190,
     optionOne: {
-      votes: ["tylermcginnis"],
+      votes: ["mattfeliciano"],
       text: "find $50 yourself",
     },
     optionTwo: {
-      votes: ["johndoe"],
+      votes: ["elliotfu"],
       text: "have your best friend find $500",
     },
   },
   xj352vofupe1dqz9emx13r: {
     id: "xj352vofupe1dqz9emx13r",
-    author: "johndoe",
+    author: "elliotfu",
     timestamp: 1493579767190,
     optionOne: {
-      votes: ["johndoe"],
+      votes: ["elliotfu"],
       text: "write JavaScript",
     },
     optionTwo: {
-      votes: ["tylermcginnis"],
+      votes: ["mattfeliciano"],
       text: "write Swift",
     },
   },

@@ -33,11 +33,11 @@ const Poll = ({ poll }) => {
           </Card.Description>
         </Card.Content>
         <Card.Content>
-          <Button basic color="violet">
+          <Button basic color="black">
             {optionOne}
           </Button>
           <div style={{ margin: "0.5rem 0" }}>Or</div>
-          <Button basic color="violet">
+          <Button basic color="black">
             {optionTwo}
           </Button>
           <br />
@@ -45,7 +45,7 @@ const Poll = ({ poll }) => {
           <div style={{ textAlign: "center" }}>
             {!(userVoteOne + userVoteTwo).includes(state.authedUser) ? (
               <Link to={`/poll/${id}`}>
-                <Button animated color="pink">
+                <Button animated color="violet">
                   <Button.Content visible>Take Poll</Button.Content>
                   <Button.Content hidden>
                     <Icon name="arrow right" />
@@ -54,7 +54,7 @@ const Poll = ({ poll }) => {
               </Link>
             ) : (
               <Link to={`/poll-result/${id}`}>
-                <Button animated color="pink">
+                <Button animated color="violet">
                   <Button.Content visible>Show Poll</Button.Content>
                   <Button.Content hidden>
                     <Icon name="arrow right" />

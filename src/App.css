@@ -6,7 +6,7 @@
   padding-top: 0.8rem;
 }
 
-img.avatar {
+.content > img.avatar {
   width: 4em !important;
   height: 4em !important;
 }
@@ -37,6 +37,8 @@ img.avatar {
   top: 27px;
 }
 
-/* .or {
-  margin: 0.5rem 0;
-} */
+.dropdown {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: center;
+}
