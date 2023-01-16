@@ -13,19 +13,23 @@ const Home = () => {
 
   const state = useSelector((state) => state);
 
-  const newPolls = Object.values(state.questions).filter(
-    (poll) =>
-      !poll.optionOne.votes.includes(state.authedUser) &&
-      !poll.optionTwo.votes.includes(state.authedUser)
-  );
+  const newPolls = Object.values(state.questions)
+    .filter(
+      (poll) =>
+        !poll.optionOne.votes.includes(state.authedUser) &&
+        !poll.optionTwo.votes.includes(state.authedUser)
+    )
+    .sort((a, b) => b.timestamp - a.timestamp);
 
-  const takenPolls = Object.values(state.questions).filter(
-    (poll) =>
-      poll.optionOne.votes.includes(state.authedUser) ||
-      poll.optionTwo.votes.includes(state.authedUser)
-  );
+  const takenPolls = Object.values(state.questions)
+    .filter(
+      (poll) =>
+        poll.optionOne.votes.includes(state.authedUser) ||
+        poll.optionTwo.votes.includes(state.authedUser)
+    )
+    .sort((a, b) => b.timestamp - a.timestamp);
 
-  // console.log(newPolls.length);
+  // console.log(newPolls);
 
   const panes = [
     {

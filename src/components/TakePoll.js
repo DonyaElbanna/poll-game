@@ -87,6 +87,7 @@ const TakePoll = () => {
 
           <div className="center-btn">
             <Button
+              disabled={!vote}
               style={{ display: viewResults && "none" }}
               color="pink"
               type="submit"
