@@ -1,9 +1,7 @@
 import { useSelector } from "react-redux";
-import { useState } from "react";
 import { formatQuestion } from "../utils/helpers";
 import { Button, Card, Image, Icon } from "semantic-ui-react";
-import ShowPoll from "./ShowPoll";
-import TakePoll from "./TakePoll";
+import { Link } from "react-router-dom";
 
 const Poll = ({ poll }) => {
   const state = useSelector((state) => state);
@@ -13,7 +11,7 @@ const Poll = ({ poll }) => {
   const {
     author,
     avatar,
-    // id,
+    id,
     optionOne,
     optionTwo,
     userVoteOne,
@@ -23,23 +21,9 @@ const Poll = ({ poll }) => {
     // totalVotes,
   } = poll;
 
-  // console.log(poll);
-
-  const [showPoll, setShowPoll] = useState(false);
-  const handleShowPoll = (e) => {
-    e.preventDefault();
-    setShowPoll(true);
-  };
-
-  const [takePoll, setTakePoll] = useState(false);
-  const handeTakePoll = (e) => {
-    e.preventDefault();
-    setTakePoll(true);
-  };
-
   return (
     <Card.Group>
-      <Card fluid color="grey">
+      <Card color="grey" style={{ marginBottom: "10%" }}>
         <Card.Content>
           <Image avatar floated="left" src={avatar} />
           <Card.Header>{author.name}</Card.Header>
@@ -48,55 +32,39 @@ const Poll = ({ poll }) => {
             <strong>Would you rather</strong>
           </Card.Description>
         </Card.Content>
-        {/* {showPoll ? (
-          <ShowPoll setShowPoll={setShowPoll} poll={poll} />
-        ) : takePoll ? (
-          <TakePoll poll={poll} />
-        ) : ( */}
         <Card.Content>
           <Button basic color="violet">
             {optionOne}
           </Button>
-          <div>Or</div>
+          <div style={{ margin: "0.5rem 0" }}>Or</div>
           <Button basic color="violet">
             {optionTwo}
           </Button>
-
-          {!(userVoteOne + userVoteTwo).includes(state.authedUser) ? (
-            <Button
-              animated
-              basic
-              color="pink"
-              floated="right"
-              onClick={handeTakePoll}
-            >
-              <Button.Content visible>Take Poll</Button.Content>
-              <Button.Content hidden>
-                <Icon name="arrow right" />
-              </Button.Content>
-            </Button>
-          ) : (
-            <Button
-              animated
-              basic
-              color="pink"
-              floated="right"
-              onClick={handleShowPoll}
-            >
-              <Button.Content visible>Show Poll</Button.Content>
-              <Button.Content hidden>
-                <Icon name="arrow right" />
-              </Button.Content>
-            </Button>
-          )}
+          <br />
+          <br />
+          <div style={{ textAlign: "center" }}>
+            {!(userVoteOne + userVoteTwo).includes(state.authedUser) ? (
+              <Link to={`/poll/${id}`}>
+                <Button animated color="pink">
+                  <Button.Content visible>Take Poll</Button.Content>
+                  <Button.Content hidden>
+                    <Icon name="arrow right" />
+                  </Button.Content>
+                </Button>
+              </Link>
+            ) : (
+              <Link to={`/poll-result/${id}`}>
+                <Button animated color="pink">
+                  <Button.Content visible>Show Poll</Button.Content>
+                  <Button.Content hidden>
+                    <Icon name="arrow right" />
+                  </Button.Content>
+                </Button>
+              </Link>
+            )}
+          </div>
         </Card.Content>
-        {/* )} */}
       </Card>
-      {showPoll ? (
-        <ShowPoll setShowPoll={setShowPoll} poll={poll} />
-      ) : takePoll ? (
-        <TakePoll poll={poll} />
-      ) : null}
     </Card.Group>
   );
 };

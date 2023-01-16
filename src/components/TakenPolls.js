@@ -1,32 +1,21 @@
 import React from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import Poll from "./Poll";
+import { Grid } from "semantic-ui-react";
+// import { useParams } from "react-router-dom";
 
-const TakenPolls = () => {
-  const state = useSelector((state) => state);
+const TakenPolls = ({polls}) => {
 
-  const takenPollIDs = Object.keys(state.questions)
-    .filter(
-      (q) =>
-        state.questions[q].optionOne.votes.includes(state.authedUser) ||
-        state.questions[q].optionTwo.votes.includes(state.authedUser)
-    )
-    .sort(
-      (a, b) => state.questions[b].timestamp - state.questions[a].timestamp
-    );
-
-  const takenPolls = takenPollIDs.map((ID) => state.questions[ID]);
-
-  // console.log(takenPolls.length);
-  // console.log(polls)
   return (
     <div>
-      <h2>Taken Polls</h2>
-      {takenPolls.map((poll, id) => (
-        <div key={id}>
-          <Poll poll={poll} />
-        </div>
-      ))}
+      <h2 className="title">Taken Polls</h2>
+      <Grid padded style={{margin: "auto"}}>
+        {polls.map((poll, id) => (
+          <div key={id}>
+            <Poll poll={poll} />
+          </div>
+        ))}
+      </Grid>
     </div>
   );
 };

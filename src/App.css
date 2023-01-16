@@ -3,11 +3,41 @@
   margin: 2%;
 }
 
+.header {
+  padding-top: 0.8rem;
+}
+
 img.avatar {
   width: 4em !important;
   height: 4em !important;
 }
 
-.header {
-  margin-top: 0.6rem !important;
+.title {
+  margin: 4% 0;
+  text-align: center;
 }
+
+.center-btn {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.ui.grid {
+  justify-content: space-evenly;
+}
+
+.ui.grey.card {
+  margin: 4% auto;
+}
+
+.ui.progress {
+  margin: 1rem !important;
+}
+
+.ui.pink.right.ribbon.label {
+  top: 27px;
+}
+
+/* .or {
+  margin: 0.5rem 0;
+} */

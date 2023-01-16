@@ -24,7 +24,6 @@ export function handleAnswerQuestion(info) {
 
     return saveQuestionAnswer(info).catch((e) => {
       console.warn("Error in handlingAddingAnswer: ", e);
-      // dispatch(answerQuestion(info));
       alert("An error occured submitting your poll. Please try again.");
     });
   };

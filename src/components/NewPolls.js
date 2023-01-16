@@ -1,32 +1,17 @@
-import React from "react";
-import { useSelector } from "react-redux";
 import Poll from "./Poll";
+import { Grid } from "semantic-ui-react";
 
-const NewPolls = () => {
-  const state = useSelector((state) => state);
-
-  const newPollIDs = Object.keys(state.questions)
-    .filter(
-      (q) =>
-        !state.questions[q].optionOne.votes.includes(state.authedUser) &&
-        !state.questions[q].optionTwo.votes.includes(state.authedUser)
-    )
-    .sort(
-      (a, b) => state.questions[b].timestamp - state.questions[a].timestamp
-    );
-
-  const newPolls = newPollIDs.map((ID) => state.questions[ID]);
-
-  // console.log(newPolls);
-  // console.log(polls)
+const NewPolls = ({ polls }) => {
   return (
     <div>
-      <h2>New Polls</h2>
-      {newPolls.map((poll, id) => (
-        <div key={id}>
-          <Poll poll={poll} />
-        </div>
-      ))}
+      <h2 className="title">New Polls</h2>
+      <Grid padded>
+        {polls.map((poll, id) => (
+          <div key={id}>
+            <Poll poll={poll} />
+          </div>
+        ))}
+      </Grid>
     </div>
   );
 };

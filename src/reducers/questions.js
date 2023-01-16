@@ -9,7 +9,7 @@ export default function questions(state = {}, action) {
         ...action.questions,
       };
     case ANSWER_QUESTION:
-      console.log(action)
+      // console.log(action)
       return {
         ...state,
         [action.qid]: {
