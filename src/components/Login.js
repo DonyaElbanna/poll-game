@@ -36,7 +36,7 @@ const users = [
 ];
 
 const Login = () => {
-  // console.log(useParams())
+  // console.log(window.location.pathname)
 
   const [user, setUser] = useState("");
   const dispatch = useDispatch();
@@ -65,7 +65,7 @@ const Login = () => {
       />
       <Button
         as={Link}
-        to="/home"
+        to={window.location.pathname}
         basic
         color="violet"
         disabled={!user}

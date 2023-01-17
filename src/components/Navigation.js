@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeAuthedUser } from "../actions/authedUser";
 import { Menu, Image } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Navigation = () => {
   const [activeItem, setActiveItem] = useState("Home");
@@ -19,26 +19,20 @@ const Navigation = () => {
     dispatch(removeAuthedUser());
   };
 
-  // const authedUser = useSelector((state) => state.authedUser);
+  const authedUser = useSelector((state) => state.authedUser);
   // console.log(authedUser);
 
-  // const handleAlert = () => {
-  //   if (!authedUser) {
-  //     alert("You gotta login first!")
-  //   }
-  // }
+  const handleAlert = () => {
+    if (!authedUser) {
+      alert("You gotta login first!");
+      return <Navigate to="/" />;
+    }
+  };
 
   return (
-    <div>
-      <Menu
-        pointing
-        secondary
-        stackable
-        color="violet"
-        size='massive'
-        // onClick={handleAlert}
-      >
-        <Link to="/home">
+    <div id="nav">
+      <Menu pointing secondary stackable color="violet" size="massive">
+        <Link to="/home" onClick={handleAlert}>
           <Menu.Item
             as="li"
             name="home"
@@ -47,7 +41,7 @@ const Navigation = () => {
           />
         </Link>
 
-        <Link to="/add">
+        <Link to="/add" onClick={handleAlert}>
           <Menu.Item
             as="li"
             name="Add Poll"
@@ -56,7 +50,7 @@ const Navigation = () => {
           />
         </Link>
 
-        <Link to="/leaderboard">
+        <Link to="/leaderboard" onClick={handleAlert}>
           <Menu.Item
             as="li"
             name="Leaderboard"
@@ -74,11 +68,12 @@ const Navigation = () => {
           ) : null}
 
           <Menu.Item
+            disabled={!authedUser}
             as={Link}
             to="/"
-            name="logout"
-            active={activeItem === "logout"}
             onClick={handleLogOut}
+            style={{ color: "#6435c9" }}
+            name="logout"
           />
         </Menu.Menu>
       </Menu>

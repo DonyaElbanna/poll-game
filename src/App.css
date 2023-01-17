@@ -18,11 +18,28 @@
   justify-content: space-evenly;
 }
 
-/* Card */
+/* Login */
 
-/* .header {
-  padding-top: 0.8rem;
-} */
+.dropdown {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: center;
+}
+
+.ui.selection.dropdown:focus {
+  border-color: #6435c9;
+}
+
+span.login-info {
+  display: flex;
+  align-items: center;
+}
+
+span.login-info > .item {
+  padding-left: 0 !important;
+}
+
+/* Card */
 
 .content > img.avatar {
   width: 3em !important;
@@ -41,23 +58,6 @@
   top: 27px;
 }
 
-/* Login */
-
-.dropdown {
-  margin-top: 10rem;
-  display: flex;
-  justify-content: center;
-}
-
-span.login-info {
-  display: flex;
-  align-items: center;
-}
-
-span.login-info > .item {
-  padding-left: 0 !important;
-}
-
 /* Tabs */
 .four {
   padding-right: 0px !important;
@@ -66,10 +66,6 @@ span.login-info > .item {
 .stretched {
   padding-left: 0px !important;
 }
-
-/* .ui.bottom.attached.segment.active.tab {
-  border-left: none;
-} */
 
 /* Leaderboard */
 
@@ -98,6 +94,19 @@ span.login-info > .item {
   padding: 7px 5px !important;
 }
 
-.leaderboard-cards > .ui.card>.content  {
+.leaderboard-cards > .ui.card > .content {
   padding-top: 0 !important;
+}
+
+/* Error */
+.error-page {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.go-home {
+  margin-left: 40%;
 }
