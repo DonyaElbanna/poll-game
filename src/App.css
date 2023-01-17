@@ -2,14 +2,7 @@
   margin: 0.5rem 1rem;
 }
 
-.header {
-  padding-top: 0.8rem;
-}
-
-.content > img.avatar {
-  width: 4em !important;
-  height: 4em !important;
-}
+/* Layout */
 
 .title {
   margin: 4% 0;
@@ -25,6 +18,17 @@
   justify-content: space-evenly;
 }
 
+/* Card */
+
+/* .header {
+  padding-top: 0.8rem;
+} */
+
+.content > img.avatar {
+  width: 3em !important;
+  height: 3em !important;
+}
+
 .ui.grey.card {
   margin: 4% auto;
 }
@@ -37,8 +41,63 @@
   top: 27px;
 }
 
+/* Login */
+
 .dropdown {
   margin-top: 10rem;
   display: flex;
   justify-content: center;
+}
+
+span.login-info {
+  display: flex;
+  align-items: center;
+}
+
+span.login-info > .item {
+  padding-left: 0 !important;
+}
+
+/* Tabs */
+.four {
+  padding-right: 0px !important;
+}
+
+.stretched {
+  padding-left: 0px !important;
+}
+
+/* .ui.bottom.attached.segment.active.tab {
+  border-left: none;
+} */
+
+/* Leaderboard */
+
+.leaderboard-cards {
+  flex-direction: column;
+  align-content: center;
+}
+
+.center {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.header {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+.ui .image {
+  position: inherit !important;
+}
+
+.ui.corner.label {
+  width: 0px !important;
+  height: 0px !important;
+  padding: 7px 5px !important;
+}
+
+.leaderboard-cards > .ui.card>.content  {
+  padding-top: 0 !important;
 }

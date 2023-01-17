@@ -1,12 +1,15 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { removeAuthedUser } from "../actions/authedUser";
-import { Menu } from "semantic-ui-react";
+import { Menu, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [activeItem, setActiveItem] = useState("Home");
   const dispatch = useDispatch();
+  const authedUserID = useSelector((state) => state.authedUser);
+  const users = useSelector((state) => state.users);
+  // console.log(users[authedUserID]);
 
   const handleItemClick = (e) => {
     setActiveItem(e.target.innerHTML);
@@ -31,6 +34,8 @@ const Navigation = () => {
         pointing
         secondary
         stackable
+        color="violet"
+        size='massive'
         // onClick={handleAlert}
       >
         <Link to="/home">
@@ -61,6 +66,13 @@ const Navigation = () => {
         </Link>
 
         <Menu.Menu position="right">
+          {authedUserID ? (
+            <span className="login-info">
+              <Image avatar src={users[authedUserID].avatarURL} />
+              <Menu.Item>{users[authedUserID].name}</Menu.Item>
+            </span>
+          ) : null}
+
           <Menu.Item
             as={Link}
             to="/"

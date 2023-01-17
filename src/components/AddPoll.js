@@ -18,7 +18,7 @@ const AddPoll = () => {
   };
 
   if (submitted === true) {
-    return <Navigate to="/" />;
+    return <Navigate to="/home" />;
   }
 
   return (
@@ -49,7 +49,11 @@ const AddPoll = () => {
         </Form>
       </Card.Content>
       <Card.Content className="center-btn">
-        <Button color="violet" disabled={!optionOne || !optionTwo} onClick={handleSubmitPoll}>
+        <Button
+          color="violet"
+          disabled={!optionOne || !optionTwo}
+          onClick={handleSubmitPoll}
+        >
           Submit
         </Button>
       </Card.Content>

@@ -1,10 +1,9 @@
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import NewPolls from "./NewPolls";
 import TakenPolls from "./TakenPolls";
 import { Tab, Label, Menu } from "semantic-ui-react";
 
 const Home = () => {
-
   const state = useSelector((state) => state);
 
   const newPolls = Object.values(state.questions)
@@ -55,12 +54,10 @@ const Home = () => {
   //   console.log(takenPolls);
 
   return (
-    <div>
-      <Tab
-        menu={{ fluid: true, color: "violet", vertical: true, tabular: true }}
-        panes={panes}
-      />
-    </div>
+    <Tab
+      menu={{ fluid: true, color: "violet", vertical: true, tabular: true }}
+      panes={panes}
+    />
   );
 };
 
