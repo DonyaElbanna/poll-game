@@ -2,6 +2,31 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Description
+
+A web app where the user can play the would you rather game. The game is about answering questions with 2 options to choose from.
+
+The App consists of:
+
+- Login page
+  - Home page
+    - New polls
+    - Taken polls
+  - Add poll page
+  - Leaderboard page
+  - Error page
+
+## Technologies used
+
+- [React](https://reactjs.org/)
+- [React Hooks](https://reactjs.org/docs/hooks-intro.html)
+- [React-Redux](https://react-redux.js.org/)
+- [Redux](https://redux.js.org/)
+- [Redux-Thunk](https://github.com/reduxjs/redux-thunk)
+- [Semntic UI React](https://react.semantic-ui.com/)
+- [React-Router](https://reactrouter.com/en/main)
+- [React Spinners](https://www.davidhu.io/react-spinners/)
+
 ## Available Scripts
 
 In the project directory, you can run:

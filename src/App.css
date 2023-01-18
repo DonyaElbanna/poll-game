@@ -1,5 +1,5 @@
 .App {
-  margin: 0.5rem 1rem;
+  margin: 0 1rem;
 }
 
 /* Layout */
@@ -20,14 +20,18 @@
 
 /* Login */
 
+.ui.medium.image {
+  margin: 2rem auto;
+}
+
 .dropdown {
-  margin-top: 10rem;
   display: flex;
   justify-content: center;
 }
 
-.ui.selection.dropdown:focus {
-  border-color: #6435c9;
+.ui.selection.dropdown:focus,
+.ui.selection.active.dropdown .menu {
+  border-color: #6435c9 !important;
 }
 
 span.login-info {
@@ -39,7 +43,20 @@ span.login-info > .item {
   padding-left: 0 !important;
 }
 
+/* Tabs */
+.four {
+  padding-right: 0px !important;
+}
+
+.stretched {
+  padding-left: 0px !important;
+}
+
 /* Card */
+
+.header {
+  padding-top: 5px;
+}
 
 .content > img.avatar {
   width: 3em !important;
@@ -58,15 +75,6 @@ span.login-info > .item {
   top: 27px;
 }
 
-/* Tabs */
-.four {
-  padding-right: 0px !important;
-}
-
-.stretched {
-  padding-left: 0px !important;
-}
-
 /* Leaderboard */
 
 .leaderboard-cards {
@@ -79,10 +87,11 @@ span.login-info > .item {
   padding: 1rem 0;
 }
 
-.header {
+.leaderboard-card-header.header {
   display: flex !important;
   align-items: center;
   justify-content: center;
+  padding-top: 0 !important;
 }
 .ui .image {
   position: inherit !important;

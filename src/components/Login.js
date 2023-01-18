@@ -1,9 +1,9 @@
 import React from "react";
-import { Dropdown, Button } from "semantic-ui-react";
+import { Image, Dropdown, Button } from "semantic-ui-react";
 import { useState } from "react";
 import { setAuthedUser } from "../actions/authedUser";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const users = [
   {
@@ -11,7 +11,8 @@ const users = [
     text: "Jenny Hess",
     value: "jennyhess",
     image: {
-      avatar: false,
+      alt: "avatar",
+      avatar: true,
       src: "https://react.semantic-ui.com/images/avatar/large/stevie.jpg",
     },
   },
@@ -20,7 +21,8 @@ const users = [
     text: "Matt Feliciano",
     value: "mattfeliciano",
     image: {
-      avatar: false,
+      alt: "avatar",
+      avatar: true,
       src: "https://semantic-ui.com/images/avatar/large/joe.jpg",
     },
   },
@@ -29,15 +31,14 @@ const users = [
     text: "Elliot Fu",
     value: "elliotfu",
     image: {
-      avatar: false,
+      alt: "avatar",
+      avatar: true,
       src: "https://react.semantic-ui.com/images/avatar/large/matthew.png",
     },
   },
 ];
 
 const Login = () => {
-  // console.log(window.location.pathname)
-
   const [user, setUser] = useState("");
   const dispatch = useDispatch();
   const handleUser = (e, { value }) => {
@@ -47,33 +48,44 @@ const Login = () => {
   const handleLogin = () => {
     dispatch(setAuthedUser(user));
   };
+
+  let location = useLocation();
+
   // console.log(user);
   return (
-    <div className="dropdown">
-      <Dropdown
-        style={{ width: "30rem" }}
-        button
-        className="icon"
-        floating
-        labeled
-        icon="user outline"
-        selection
-        placeholder="Select a user"
-        fluid
-        options={users}
-        onChange={handleUser}
+    <>
+      <Image
+        size="medium"
+        src="https://i.postimg.cc/B6dbsbLf/wydpic.png"
+        alt="app-logo"
       />
-      <Button
-        as={Link}
-        to={window.location.pathname}
-        basic
-        color="violet"
-        disabled={!user}
-        onClick={handleLogin}
-      >
-        Log in
-      </Button>
-    </div>
+      <div className="dropdown">
+        <Dropdown
+          style={{ width: "30rem" }}
+          button
+          className="icon"
+          floating
+          labeled
+          icon="user outline"
+          selection
+          placeholder="Select a user"
+          fluid
+          options={users}
+          onChange={handleUser}
+          title="login"
+        />
+        <Button
+          as={Link}
+          to={location.pathname}
+          basic
+          color="violet"
+          disabled={!user}
+          onClick={handleLogin}
+        >
+          Log in
+        </Button>
+      </div>
+    </>
   );
 };
 

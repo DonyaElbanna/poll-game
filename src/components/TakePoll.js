@@ -55,7 +55,7 @@ const TakePoll = () => {
   return (
     <Card color="grey">
       <Card.Content>
-        <Image avatar floated="left" src={avatar} />
+        <Image avatar floated="left" src={avatar} alt="avatar"/>
         <Card.Header>{author.name}</Card.Header>
         <Card.Meta>is asking:</Card.Meta>
         <Card.Description>

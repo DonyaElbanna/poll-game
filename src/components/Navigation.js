@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeAuthedUser } from "../actions/authedUser";
 import { Menu, Image } from "semantic-ui-react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [activeItem, setActiveItem] = useState("Home");
@@ -29,32 +29,37 @@ const Navigation = () => {
     }
   };
 
+  const location = useLocation();
+
   return (
     <div id="nav">
       <Menu pointing secondary stackable color="violet" size="massive">
         <Link to="/home" onClick={handleAlert}>
           <Menu.Item
-            as="li"
+            as="p"
             name="home"
-            active={activeItem === "Home"}
+            active={activeItem === "Home" || location.pathname === "/home"}
             onClick={handleItemClick}
           />
         </Link>
 
         <Link to="/add" onClick={handleAlert}>
           <Menu.Item
-            as="li"
+            as="p"
             name="Add Poll"
-            active={activeItem === "Add Poll"}
+            active={activeItem === "Add Poll" && location.pathname === "/add"}
             onClick={handleItemClick}
           />
         </Link>
 
         <Link to="/leaderboard" onClick={handleAlert}>
           <Menu.Item
-            as="li"
+            as="p"
             name="Leaderboard"
-            active={activeItem === "Leaderboard"}
+            active={
+              activeItem === "Leaderboard" &&
+              location.pathname === "/leaderboard"
+            }
             onClick={handleItemClick}
           />
         </Link>
@@ -62,7 +67,11 @@ const Navigation = () => {
         <Menu.Menu position="right">
           {authedUserID ? (
             <span className="login-info">
-              <Image avatar src={users[authedUserID].avatarURL} />
+              <Image
+                avatar
+                src={users[authedUserID].avatarURL}
+                alt="user-avatar"
+              />
               <Menu.Item>{users[authedUserID].name}</Menu.Item>
             </span>
           ) : null}

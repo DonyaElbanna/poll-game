@@ -47,13 +47,13 @@ const PollResult = () => {
   }
 
   const LabelOne = (
-    <Label basic color="black" image>
+    <Label basic color="black">
       {optionOne}
     </Label>
   );
 
   const LabelTwo = (
-    <Label basic color="black" image>
+    <Label basic color="black">
       {optionTwo}
     </Label>
   );
@@ -61,7 +61,7 @@ const PollResult = () => {
   return (
     <Card color="grey">
       <Card.Content>
-        <Image avatar floated="left" src={avatar} />
+        <Image avatar floated="left" src={avatar} alt="avatar"/>
         <Card.Header>{author.name}</Card.Header>
         <Card.Meta>is asking:</Card.Meta>
         <Card.Description>

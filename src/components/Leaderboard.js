@@ -39,13 +39,13 @@ const Leaderboard = () => {
                     label={{ corner: "left", content: "3rd", color: "orange" }}
                   />
                 )}
-                <Card.Header>
-                  <Image avatar src={avatar} />
+                <Card.Header className="leaderboard-card-header">
+                  <Image avatar src={avatar} alt="avatar" />
                   {name}
                 </Card.Header>
                 <Card.Description>Polls taken: {pollsTaken}</Card.Description>
                 <Card.Description>Polls added: {pollsAdded}</Card.Description>
-                <Card.Description>Total polls: {totalScore}</Card.Description>
+                <Card.Description>Total polls submitted: {totalScore}</Card.Description>
               </Card.Content>
             </Card>
           );
